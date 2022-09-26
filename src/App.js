@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Leftbar from "./components/Leftbar";
+import Feed from "./components/Feed";
+import AddProjectForm from "./components/AddProjectForm";
+import AddEmployeeForm from "./components/AddEmployeeForm";
+import Rightbar from "./components/Rightbar";
+import { Stack } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Stack direction="row" justifyContent="space-between">
+      <BrowserRouter>
+        <Leftbar/>
+        <Routes>
+            <Route path="/"/>
+              <Route index element={<Feed />} />
+              <Route path="addproject" element={<AddProjectForm />} />
+              <Route path="addemployee" element={<AddEmployeeForm />} />
+            <Route/>
+        </Routes>
+        <Rightbar/>
+      </BrowserRouter>
+    </Stack>
   );
 }
 
