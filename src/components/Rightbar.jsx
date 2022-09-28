@@ -2,7 +2,7 @@ import { Avatar, Box, Container, List, ListItem, ListItemAvatar, ListItemText, s
 import React from 'react'
 
 
-const Search = styled("div")({
+const Search = styled("form")({
   display: "flex",
   justifyContent: "space-between",
   backgroundColor: "white",
@@ -13,7 +13,7 @@ const Search = styled("div")({
 
 function Rightbar() {
   return (
-    <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1} sx={{ display: { xs: "none", sm:"block"}}}>
+    <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1} sx={{ display: { md: "none", lg:"block"}}}>
       <div className="rightbarsticky">
         <Typography variant="h6" fontWeight={400} className="rightbartext" position="sticky" pt={2}>Employees</Typography>
         <Search>Search</Search>
