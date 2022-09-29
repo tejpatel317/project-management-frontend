@@ -1,5 +1,5 @@
 import { ExpandMore, Favorite, MoreVert, Share } from '@mui/icons-material'
-import { Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, styled, Typography } from '@mui/material'
+import { Avatar, AvatarGroup, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, styled, Typography } from '@mui/material'
 import React from 'react'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 
@@ -31,20 +31,17 @@ function Feed() {
             <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
             <div className="carddivision"/>
             <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                This impressive paella is a perfect party dish and a fun meal to cook
-                together with your guests. Add 1 cup of frozen peas along with the mussels,
-                if you like.
-              </Typography>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
             </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <Favorite />
-              </IconButton>
-              <IconButton aria-label="share">
-                <Share />
-              </IconButton>
-            </CardActions>
           </Card>
         </Grid>
         <Grid item xs={4}>
@@ -52,20 +49,35 @@ function Feed() {
             <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
             <div className="carddivision"/>
             <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                This impressive paella is a perfect party dish and a fun meal to cook
-                together with your guests. Add 1 cup of frozen peas along with the mussels,
-                if you like.
-              </Typography>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
             </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <Favorite />
-              </IconButton>
-              <IconButton aria-label="share">
-                <Share />
-              </IconButton>
-            </CardActions>
+          </Card>
+        </Grid>
+      <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
           </Card>
         </Grid>
         <Grid item xs={4}>
@@ -73,20 +85,197 @@ function Feed() {
             <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
             <div className="carddivision"/>
             <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                This impressive paella is a perfect party dish and a fun meal to cook
-                together with your guests. Add 1 cup of frozen peas along with the mussels,
-                if you like.
-              </Typography>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
             </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <Favorite />
-              </IconButton>
-              <IconButton aria-label="share">
-                <Share />
-              </IconButton>
-            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card>
+            <CardHeader title="Shrimp and Chorizo Paella" subheader="September 14, 2016"/>
+            <div className="carddivision"/>
+            <CardContent>
+            <AvatarGroup max={6} className="cardavatars">
+              <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg"/>
+              <Avatar alt="Travis Howard" src="https://mui.com/static/mages/avatar/2.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+              <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg"/>
+              <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg"/>
+              <Avatar alt="Trevor Henderson" src="https://mui.com/static/images/avatar/5.jpg"/>
+            </AvatarGroup>
+            </CardContent>
           </Card>
         </Grid>
       </Grid>

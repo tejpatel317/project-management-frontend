@@ -13,10 +13,12 @@ const Search = styled("form")({
 
 function Rightbar() {
   return (
-    <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1} sx={{ display: { md: "none", lg:"block"}}}>
+    <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1} sx={{ display: { xs: "none", sm: "none", md: "none", lg:"block"}}}>
       <div className="rightbarsticky">
         <Typography variant="h6" fontWeight={400} className="rightbartext" position="sticky" pt={2}>Employees</Typography>
-        <Search>Search</Search>
+        <Search>
+          <label>Search</label>
+        </Search>
       </div>
       <div className="avatarblock">
       <List>
