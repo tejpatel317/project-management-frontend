@@ -2,23 +2,14 @@ import { Avatar, Box, Container, List, ListItem, ListItemAvatar, ListItemText, s
 import React from 'react'
 
 
-const Search = styled("form")({
-  display: "flex",
-  justifyContent: "space-between",
-  backgroundColor: "white",
-  margin: "20px 10px 0px 10px",
-  padding: "10px 10px",
-  borderRadius: "6px",
-});
-
 function Rightbar() {
   return (
     <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1} sx={{ display: { xs: "none", sm: "none", md: "none", lg:"block"}}}>
       <div className="rightbarsticky">
         <Typography variant="h6" fontWeight={400} className="rightbartext" position="sticky" pt={2}>Employees</Typography>
-        <Search>
-          <label>Search</label>
-        </Search>
+        <form className="p-0 my-3 mx-2">
+          <input className="form-control" type="text" value={"Search"}/>  
+        </form>
       </div>
       <div className="avatarblock">
       <List>

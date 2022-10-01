@@ -1,16 +1,6 @@
-import { ExpandMore, Favorite, MoreVert, Share } from '@mui/icons-material'
 import { Avatar, AvatarGroup, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, styled, Typography } from '@mui/material'
 import React from 'react'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
-
-const Search = styled("form")({
-  display: "flex",
-  justifyContent: "space-between",
-  backgroundColor: "white",
-  margin: "50px 10px",
-  padding: "15px 15px",
-  borderRadius: "10px",
-});
 
 function Feed() {
   return (
@@ -22,9 +12,9 @@ function Feed() {
           <Button variant="contained" className="logoutbutton" size="large">Logout</Button>
         </div>
       </div>
-      <Search>
-        <label>Search Project</label>
-      </Search>
+      <form className="p-0 my-5 mx-5">
+        <input className="form-control" type="text" value={"Search"}/>     
+      </form>
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Card>
