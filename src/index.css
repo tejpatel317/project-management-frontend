@@ -89,3 +89,7 @@
   align-self: center;
   justify-content: center;
 }
+
+.feedbox {
+  min-height: 100vh;
+}

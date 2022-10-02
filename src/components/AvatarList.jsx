@@ -1,4 +1,3 @@
-import { ListItem } from '@mui/material'
 import React from 'react'
 import AvatarItem from './AvatarItem'
 import listItems from "./ListItems"

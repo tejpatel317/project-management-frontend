@@ -1,5 +1,4 @@
 import { Avatar, Box, Container, List, ListItem, ListItemAvatar, ListItemText, Modal, styled, Typography } from '@mui/material'
-import ListItems from "./ListItems"
 import AvatarList from './AvatarList'
 import React from 'react'
 
