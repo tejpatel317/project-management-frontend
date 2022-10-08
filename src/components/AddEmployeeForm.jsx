@@ -1,8 +1,14 @@
 import { Box, Button, Typography } from '@mui/material'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
-import React from 'react'
+import React, { useState } from 'react'
 
-function AddEmployeeForm() {
+function AddEmployeeForm({projects}) {
+
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [position, setPosition] = useState("")
+  const [avatar, setAvatar] = useState("")
+
   return (
     <Box bgcolor="#eeeeee" flex={6} p={2}>
       <div>
@@ -15,19 +21,19 @@ function AddEmployeeForm() {
       <form className="p-5 mt-4 mx-5">
         <div className="my-4">
           <label className="form-label">First Name:</label>
-          <input type="text" className="form-control"/>
+          <input type="text" className="form-control" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
         </div>
         <div className="my-4">
           <label className="form-label">Last Name:</label>
-          <input type="text" className="form-control"/>
+          <input type="text" className="form-control" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
         </div>
         <div className="my-4">
           <label className="form-label">Position:</label>
-          <input type="text" className="form-control"/>
+          <input type="text" className="form-control" value={position} onChange={(e) => setPosition(e.target.value)}/>
         </div>
         <div className="my-4">
           <label className="form-label">Avatar:</label>
-          <input type="text" className="form-control"/>
+          <input type="text" className="form-control" value={avatar} onChange={(e) => setAvatar(e.target.value)}/>
         </div>
         <div className="my-4">
           <label className="form-label">Assign To:</label>

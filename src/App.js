@@ -31,8 +31,8 @@ function App() {
         <Routes>
             <Route path="/"/>
               <Route index element={<Feed projects={projects} employees={employees}/>}/>
-              <Route path="addproject" element={<AddProjectForm  employees={employees}/>} />
-              <Route path="addemployee" element={<AddEmployeeForm />} />
+              <Route path="addproject" element={<AddProjectForm employees={employees}/>} />
+              <Route path="addemployee" element={<AddEmployeeForm projects={projects}/>} />
             <Route/>
         </Routes>
         <Rightbar/>
