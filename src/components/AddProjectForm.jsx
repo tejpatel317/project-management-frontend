@@ -2,8 +2,13 @@ import { Box, Button, Typography } from '@mui/material'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import React from 'react'
 
-function AddProjectForm() {
+function AddProjectForm({employees}) {
 
+  console.log(employees)
+
+  const formSelectValues = employees.map((employee) => {
+    return (<option value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
+  })
   
   return (
     <Box bgcolor="#eeeeee" flex={6} p={2}>
@@ -29,16 +34,8 @@ function AddProjectForm() {
         </div>
         <div className="my-4">
           <label className="form-label">Assign To:</label>
-          <select class="form-select" size="10" multiple aria-label="Default select example">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="form-select" size={employees.length} multiple aria-label="Default select example">
+            {formSelectValues}
           </select>
           <Button variant="contained" className="my-4" size="large">Submit</Button>
         </div>
