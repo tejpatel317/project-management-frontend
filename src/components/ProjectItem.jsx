@@ -41,7 +41,7 @@ function ProjectItem({oneproject}) {
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
     >
-        <Box width={650} height={400} bgcolor="white" p={5} borderRadius={5} className="avatarmodal">
+        <Box width={650} bgcolor="white" p={5} borderRadius={5} className="avatarmodal">
             {openform ? 
                 <>
                     <form className="mb-3">
