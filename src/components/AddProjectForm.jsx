@@ -1,15 +1,29 @@
 import { Box, Button, Typography } from '@mui/material'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
-import React from 'react'
+import React, { useState } from 'react'
 
 function AddProjectForm({employees}) {
 
-  console.log(employees)
+  const [projectName, setProjectName] = useState("")
+  const [projectDetails, setProjectDetails] = useState("")
+  const [projectDueDate, setProjectDueDate] = useState(new Date().toJSON().slice(0,10))
+  const [projectEmployees, setProjectEmployees] = useState([])
 
   const formSelectValues = employees.map((employee) => {
     return (<option value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
   })
-  
+
+  function handleEmployeeSelectChange(e) {
+    const options = e.target.options;
+      const selectedEmployees = [];
+        for (let i = 0; i < options.length; i++) {
+          if (options[i].selected) {
+            selectedEmployees.push(options[i].value);
+          }
+        }
+    setProjectEmployees(selectedEmployees)
+  }
+
   return (
     <Box bgcolor="#eeeeee" flex={6} p={2}>
       <div>
@@ -22,19 +36,19 @@ function AddProjectForm({employees}) {
       <form className="p-5 mt-4 mx-5">
         <div className="my-4">
           <label className="form-label">Project Name:</label>
-          <input type="text" className="form-control"/>
+          <input type="text" className="form-control" value={projectName} onChange={(e) => setProjectName(e.target.value)}/>
         </div>
         <div className="my-4">
           <label className="form-label">Project Details:</label>
-          <textarea type="text" className="form-control" rows="5"></textarea>
+          <textarea type="text" className="form-control" rows="5" value={projectDetails} onChange={(e) => setProjectDetails(e.target.value)}></textarea>
         </div>
         <div className="my-4">
           <label className="form-label">Due Date:</label>
-          <input type="date" className="form-control"/>
+          <input type="date" className="form-control" value={projectDueDate} onChange={(e) => setProjectDueDate(e.target.value)}/>
         </div>
         <div className="my-4">
           <label className="form-label">Assign To:</label>
-          <select class="form-select" size={employees.length} multiple aria-label="Default select example">
+          <select class="form-select" size={employees.length} multiple aria-label="Default select example" value={projectEmployees} onChange={handleEmployeeSelectChange}>
             {formSelectValues}
           </select>
           <Button variant="contained" className="my-4" size="large">Submit</Button>
