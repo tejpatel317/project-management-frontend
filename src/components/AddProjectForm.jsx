@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import React, { useState } from 'react'
 
-function AddProjectForm({employees}) {
+function AddProjectForm({employees, handleNewProject}) {
 
   const [projectName, setProjectName] = useState("")
   const [projectDetails, setProjectDetails] = useState("")
@@ -24,6 +24,25 @@ function AddProjectForm({employees}) {
     setProjectEmployees(selectedEmployees)
   }
 
+  function handleSubmit(e) {
+    console.log(e)
+    e.preventDefault()
+    fetch("http://localhost:9292/projects", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: projectName,
+        detail: projectDetails,
+        due_date: projectDueDate,
+        project_employees: projectEmployees,
+      }),
+    })
+    .then((r) => r.json())
+    .then((newProject) => handleNewProject(newProject))
+  }
+
   return (
     <Box bgcolor="#eeeeee" flex={6} p={2}>
       <div>
@@ -33,7 +52,7 @@ function AddProjectForm({employees}) {
           <Button variant="contained" className="logoutbutton" size="large">Logout</Button>
         </div>
       </div>
-      <form className="p-5 mt-4 mx-5">
+      <form className="p-5 mt-4 mx-5" onSubmit={handleSubmit}>
         <div className="my-4">
           <label className="form-label">Project Name:</label>
           <input type="text" className="form-control" value={projectName} onChange={(e) => setProjectName(e.target.value)}/>
@@ -51,7 +70,7 @@ function AddProjectForm({employees}) {
           <select class="form-select" size={employees.length} multiple aria-label="Default select example" value={projectEmployees} onChange={handleEmployeeSelectChange}>
             {formSelectValues}
           </select>
-          <Button variant="contained" className="my-4" size="large">Submit</Button>
+          <Button variant="contained" className="my-4" size="large" type="submit">Submit</Button>
         </div>
       </form>
     </Box>
