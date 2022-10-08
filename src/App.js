@@ -28,6 +28,10 @@ function App() {
     setProjects([...projects, newProject])
   }
 
+  function handleNewEmployee(newEmployee) {
+    setEmployees([...employees, newEmployee])
+  }
+
   return (
     <Stack direction="row" justifyContent="space-between">
       <BrowserRouter>
@@ -36,7 +40,7 @@ function App() {
             <Route path="/"/>
               <Route index element={<Feed projects={projects} employees={employees}/>}/>
               <Route path="addproject" element={<AddProjectForm employees={employees} handleNewProject={handleNewProject}/>} />
-              <Route path="addemployee" element={<AddEmployeeForm projects={projects}/>} />
+              <Route path="addemployee" element={<AddEmployeeForm projects={projects} handleNewEmployee={handleNewEmployee}/>} />
             <Route/>
         </Routes>
         <Rightbar employees={employees}/>

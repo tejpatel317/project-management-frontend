@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import React, { useState } from 'react'
 
-function AddEmployeeForm({projects}) {
+function AddEmployeeForm({projects, handleNewEmployee}) {
 
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
