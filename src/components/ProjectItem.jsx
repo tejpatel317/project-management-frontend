@@ -1,21 +1,29 @@
 import { Avatar, AvatarGroup, Box, Button, Card, CardContent, CardHeader, Grid, Modal, styled, Typography } from '@mui/material'
 import React, { useState } from 'react'
 
-function ProjectItem({oneproject}) {
+function ProjectItem({oneproject, employees}) {
 
-    const {id, name, detail, due_date: dueDate, employees} = oneproject
+    const {id, name, detail, due_date: dueDate, employees: projectEmployees} = oneproject
     const [open, setOpen] = useState(false)
     const [openform, setOpenForm] = useState(false)
 
-    const groupedAvatars = employees.map((employee) => {
+    const groupedAvatars = projectEmployees.map((employee) => {
         return (<Avatar alt={`${employee.first_name} ${employee.last_name}`} src={employee.avatar}></Avatar>)
     })
 
-    const employeeNameList = employees.map((employee) => {
+    const employeeNameList = projectEmployees.map((employee) => {
         return (`${employee.first_name} ${employee.last_name}`)
     }).join(", ")
 
-    const formSelectValues = employees.map((employee) => {
+    const assignedEmployees = projectEmployees.map((employee) => {
+        return (employee.id)
+    })
+
+    const unassignedEmployees = employees.filter((employee) => {
+        return (!assignedEmployees.includes(employee.id))
+    })
+
+    const formSelectValues = unassignedEmployees.map((employee) => {
         return (<option value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
     })
 
@@ -48,7 +56,7 @@ function ProjectItem({oneproject}) {
                 <>
                     <form className="mb-3">
                         <label className="form-label">Assign To:</label>
-                        <select class="form-select" size={`${employees.length}`} multiple aria-label="Default select example">
+                        <select class="form-select" size={`${unassignedEmployees.length}`} multiple aria-label="Default select example">
                             {formSelectValues}
                         </select>
                     </form>
