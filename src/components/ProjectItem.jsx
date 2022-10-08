@@ -6,6 +6,7 @@ function ProjectItem({oneproject, employees}) {
     const {id, name, detail, due_date: dueDate, employees: projectEmployees} = oneproject
     const [open, setOpen] = useState(false)
     const [openform, setOpenForm] = useState(false)
+    const [newEmployees, setNewEmployees] = useState([])
 
     const groupedAvatars = projectEmployees.map((employee) => {
         return (<Avatar alt={`${employee.first_name} ${employee.last_name}`} src={employee.avatar}></Avatar>)
@@ -32,6 +33,19 @@ function ProjectItem({oneproject, employees}) {
         alignItems:"center",
         justifyContent: "center"
     })
+
+    function handleEmployeeSelectChange(e) {
+        const options = e.target.options;
+          const selectedEmployees = [];
+            for (let i = 0; i < options.length; i++) {
+              if (options[i].selected) {
+                selectedEmployees.push(options[i].value);
+              }
+            }
+        setNewEmployees(selectedEmployees)
+    }
+
+    console.log(newEmployees)
     
 
   return (
@@ -56,7 +70,7 @@ function ProjectItem({oneproject, employees}) {
                 <>
                     <form className="mb-3">
                         <label className="form-label">Assign To:</label>
-                        <select class="form-select" size={`${unassignedEmployees.length}`} multiple aria-label="Default select example">
+                        <select class="form-select" size={`${unassignedEmployees.length}`} multiple aria-label="Default select example" value={newEmployees} onChange={handleEmployeeSelectChange}>
                             {formSelectValues}
                         </select>
                     </form>

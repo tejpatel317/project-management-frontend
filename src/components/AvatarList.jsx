@@ -1,11 +1,10 @@
 import React from 'react'
 import AvatarItem from './AvatarItem'
-import listItems from "./ListItems"
 
-function AvatarList() {
+function AvatarList({employees}) {
 
-  const avatarList = listItems.map((listItem) => {
-    return (<div key={listItem.id}><AvatarItem listItem={listItem}/></div>)
+  const avatarList = employees.map((employee) => {
+    return (<div key={employee.id}><AvatarItem employee={employee}/></div>)
   })
 
   return (

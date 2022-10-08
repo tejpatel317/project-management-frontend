@@ -3,9 +3,9 @@ import AvatarList from './AvatarList'
 import React from 'react'
 
 
-function Rightbar() {
+function Rightbar({employees}) {
   return (
-    <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1} sx={{ display: { xs: "none", sm: "none", md: "none", lg:"block"}}}>
+    <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1.2} sx={{ display: { xs: "none", sm: "none", md: "none", lg:"block"}}}>
       <div className="rightbarsticky">
         <Typography variant="h6" fontWeight={400} className="rightbartext" position="sticky" pt={2}>Employees</Typography>
         <form className="p-0 my-3 mx-2">
@@ -14,7 +14,7 @@ function Rightbar() {
       </div>
       <div className="avatarblock">
       <List>
-      <AvatarList></AvatarList>
+      <AvatarList employees={employees}></AvatarList>
       </List>
     </div>
     </Box>

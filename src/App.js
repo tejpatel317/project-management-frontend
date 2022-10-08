@@ -35,7 +35,7 @@ function App() {
               <Route path="addemployee" element={<AddEmployeeForm projects={projects}/>} />
             <Route/>
         </Routes>
-        <Rightbar/>
+        <Rightbar employees={employees}/>
       </BrowserRouter>
     </Stack>
   );
