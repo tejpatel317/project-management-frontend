@@ -25,7 +25,6 @@ function AddProjectForm({employees, handleNewProject}) {
   }
 
   function handleSubmit(e) {
-    console.log(e)
     e.preventDefault()
     fetch("http://localhost:9292/projects", {
       method: "POST",

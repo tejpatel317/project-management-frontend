@@ -25,6 +25,25 @@ function AddEmployeeForm({projects}) {
     setAvaliableProjects(selectedProjects)
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch("http://localhost:9292/employees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        position: position,
+        avatar: avatar,
+        avaliable_project: avaliableProjects,
+      }),
+    })
+    .then((r) => r.json())
+    .then((newEmployee) => handleNewEmployee(newEmployee))
+  }
+
   return (
     <Box bgcolor="#eeeeee" flex={6} p={2}>
       <div>
