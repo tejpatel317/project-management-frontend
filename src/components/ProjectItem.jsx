@@ -7,15 +7,17 @@ function ProjectItem({oneproject}) {
     const [open, setOpen] = useState(false)
     const [openform, setOpenForm] = useState(false)
 
-    console.log(name)
-
-    const groupedavatars = oneproject.employees.map((employee) => {
+    const groupedAvatars = employees.map((employee) => {
         return (<Avatar alt={`${employee.first_name} ${employee.last_name}`} src={employee.avatar}></Avatar>)
     })
 
-    const employeenamelist = oneproject.employees.map((employee) => {
+    const employeeNameList = employees.map((employee) => {
         return (`${employee.first_name} ${employee.last_name}`)
     }).join(", ")
+
+    const formSelectValues = employees.map((employee) => {
+        return (<option value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
+    })
 
     const StyledModal = styled(Modal)({
         display:"flex",
@@ -31,7 +33,7 @@ function ProjectItem({oneproject}) {
         <div className="carddivision"/>
         <CardContent>
         <AvatarGroup max={6} className="cardavatars">
-            {groupedavatars}
+            {groupedAvatars}
         </AvatarGroup>
         </CardContent>
     </Card>
@@ -46,16 +48,8 @@ function ProjectItem({oneproject}) {
                 <>
                     <form className="mb-3">
                         <label className="form-label">Assign To:</label>
-                        <select class="form-select" size="10" multiple aria-label="Default select example">
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" size={`${employees.length}`} multiple aria-label="Default select example">
+                            {formSelectValues}
                         </select>
                     </form>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -72,7 +66,7 @@ function ProjectItem({oneproject}) {
                     <Typography variant="h4" mb={3} fontWeight={500}>{name}</Typography>
                     <Typography variant="h6" mb={3} fontWeight={500}>{`Due Date: ${dueDate}`}</Typography>
                     <Typography variant="h6" mb={3} fontWeight={500}>{detail}</Typography>
-                    <Typography variant="h6" mb={3} fontWeight={500}>{`Assigned To: ${employeenamelist}`}</Typography>
+                    <Typography variant="h6" mb={3} fontWeight={500}>{`Assigned To: ${employeeNameList}`}</Typography>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>
                             <Button variant="contained" color="error" size="large">Delete Project</Button>
