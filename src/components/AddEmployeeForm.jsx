@@ -53,7 +53,7 @@ function AddEmployeeForm({projects}) {
           <Button variant="contained" className="logoutbutton" size="large">Logout</Button>
         </div>
       </div>
-      <form className="p-5 mt-4 mx-5">
+      <form className="p-5 mt-4 mx-5" onSubmit={handleSubmit}>
         <div className="my-4">
           <label className="form-label">First Name:</label>
           <input type="text" className="form-control" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
@@ -75,7 +75,7 @@ function AddEmployeeForm({projects}) {
           <select class="form-select" size={formSelectValues.length} multiple aria-label="Default select example" value={avaliableProjects} onChange={handleProjectChange}>
             {formSelectValues}
           </select>
-          <Button variant="contained" className="my-4" size="large">Submit</Button>
+          <Button variant="contained" className="my-4" size="large" type="submit">Submit</Button>
         </div>
       </form>
     </Box>
