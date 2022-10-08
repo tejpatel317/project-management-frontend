@@ -8,6 +8,22 @@ function AddEmployeeForm({projects}) {
   const [lastName, setLastName] = useState("")
   const [position, setPosition] = useState("")
   const [avatar, setAvatar] = useState("")
+  const [avaliableProjects, setAvaliableProjects] = useState([])
+
+  const formSelectValues = projects.map((project) => {
+    return (<option value={`${project.id}`}>{project.name}</option>)
+  })
+
+  function handleProjectChange(e) {
+    const options = e.target.options;
+      const selectedProjects = [];
+        for (let i = 0; i < options.length; i++) {
+          if (options[i].selected) {
+            selectedProjects.push(options[i].value);
+          }
+        }
+    setAvaliableProjects(selectedProjects)
+  }
 
   return (
     <Box bgcolor="#eeeeee" flex={6} p={2}>
@@ -37,16 +53,8 @@ function AddEmployeeForm({projects}) {
         </div>
         <div className="my-4">
           <label className="form-label">Assign To:</label>
-          <select class="form-select" size="10" multiple aria-label="Default select example">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="form-select" size={formSelectValues.length} multiple aria-label="Default select example" value={avaliableProjects} onChange={handleProjectChange}>
+            {formSelectValues}
           </select>
           <Button variant="contained" className="my-4" size="large">Submit</Button>
         </div>
