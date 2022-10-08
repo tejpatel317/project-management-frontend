@@ -3,16 +3,18 @@ import React, { useState } from 'react'
 
 function ProjectItem({oneproject}) {
 
-    const {id, projectname, projectdetails, projectduedata, employees} = oneproject
+    const {id, name, detail, due_date: dueDate, employees} = oneproject
     const [open, setOpen] = useState(false)
     const [openform, setOpenForm] = useState(false)
 
+    console.log(name)
+
     const groupedavatars = oneproject.employees.map((employee) => {
-        return (<Avatar alt={`${employee.firstname} ${employee.lastname}`} src={employee.avatar}></Avatar>)
+        return (<Avatar alt={`${employee.first_name} ${employee.last_name}`} src={employee.avatar}></Avatar>)
     })
 
     const employeenamelist = oneproject.employees.map((employee) => {
-        return (`${employee.firstname} ${employee.lastname}`)
+        return (`${employee.first_name} ${employee.last_name}`)
     }).join(", ")
 
     const StyledModal = styled(Modal)({
@@ -25,7 +27,7 @@ function ProjectItem({oneproject}) {
   return (
     <>
     <Card onClick={e=>setOpen(true)}>
-        <CardHeader title={projectname} subheader={projectduedata}/>
+        <CardHeader title={name} subheader={dueDate}/>
         <div className="carddivision"/>
         <CardContent>
         <AvatarGroup max={6} className="cardavatars">
@@ -67,9 +69,9 @@ function ProjectItem({oneproject}) {
                 </> 
                 :
                 <>
-                    <Typography variant="h4" mb={3} fontWeight={500}>{projectname}</Typography>
-                    <Typography variant="h6" mb={3} fontWeight={500}>{`Due Date: ${projectduedata}`}</Typography>
-                    <Typography variant="h6" mb={3} fontWeight={500}>{projectdetails}</Typography>
+                    <Typography variant="h4" mb={3} fontWeight={500}>{name}</Typography>
+                    <Typography variant="h6" mb={3} fontWeight={500}>{`Due Date: ${dueDate}`}</Typography>
+                    <Typography variant="h6" mb={3} fontWeight={500}>{detail}</Typography>
                     <Typography variant="h6" mb={3} fontWeight={500}>{`Assigned To: ${employeenamelist}`}</Typography>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>

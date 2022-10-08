@@ -3,7 +3,8 @@ import React from 'react'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import ProjectList from './ProjectList';
 
-function Feed() {
+function Feed({projects}) {
+
   return (
     <Box bgcolor="#eeeeee" flex={6} p={2} className="feedbox">
       <div>
@@ -16,7 +17,7 @@ function Feed() {
       <form className="p-0 my-5 mx-5">
         <input className="form-control" type="text" value={"Search"}/>     
       </form>
-      <ProjectList></ProjectList>
+      <ProjectList projects={projects}></ProjectList>
     </Box>
   )
 }

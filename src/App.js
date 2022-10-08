@@ -30,7 +30,7 @@ function App() {
         <Leftbar/>
         <Routes>
             <Route path="/"/>
-              <Route index element={<Feed />} />
+              <Route index element={<Feed projects={projects}/>}/>
               <Route path="addproject" element={<AddProjectForm />} />
               <Route path="addemployee" element={<AddEmployeeForm />} />
             <Route/>
