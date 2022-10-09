@@ -27,7 +27,6 @@ function App() {
   function handleNewProject(newProject) {
     setProjects([...projects, newProject])
 
-
     const employeesToUpdate = newProject.employees.map((employee) => employee.id)
     const updatedEmployees = employees.map((employee) => {
       if (employeesToUpdate.includes(employee.id)) {
@@ -46,8 +45,22 @@ function App() {
 
 
   function handleNewEmployee(newEmployee) {
-    console.log(newEmployee)
     setEmployees([...employees, newEmployee])
+
+    const projectsToUpdate = newEmployee.projects.map((project) => project.id)
+    const updatedProjects = projects.map((project) => {
+      if (projectsToUpdate.includes(project.id)) {
+        const copyProjectEmployees = [...project.employees, {id: newEmployee.id, first_name: newEmployee.first_name, last_name: newEmployee.last_name, position: newEmployee.position, avatar: newEmployee.avatar}]
+        const newProject = {...project}
+        newProject.employees = copyProjectEmployees
+        return newProject
+      }
+      else {
+        return project
+      }
+    })
+
+    setProjects(updatedProjects)
   }
 
   return (
