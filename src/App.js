@@ -63,13 +63,38 @@ function App() {
     setProjects(updatedProjects)
   }
 
+  function onDeletedProject(deletedProject) {
+    const updatedProjects = projects.filter((project) => project.id !== deletedProject.id)
+    setProjects(updatedProjects)
+
+    const employeesToUpdate = deletedProject.employees.map((employee) => employee.id)
+    const updatedEmployees = employees.map((employee) => {
+      if (employeesToUpdate.includes(employee.id)) {
+        const copyEmployeeProjects = employee.projects.filter((project) => project.id !== deletedProject.id)
+        const newEmployee = {...employee}
+        newEmployee.projects = copyEmployeeProjects
+        return newEmployee
+      }
+      else {
+        return employee
+      }
+    })
+
+    console.log(deletedProject)
+    console.log(employeesToUpdate)
+    console.log(employees)
+    console.log(updatedEmployees)
+
+    setEmployees(updatedEmployees)
+  }
+
   return (
     <Stack direction="row" justifyContent="space-between">
       <BrowserRouter>
         <Leftbar/>
         <Routes>
             <Route path="/"/>
-              <Route index element={<Feed projects={projects} employees={employees}/>}/>
+              <Route index element={<Feed projects={projects} employees={employees} onDeletedProject={onDeletedProject}/>}/>
               <Route path="addproject" element={<AddProjectForm employees={employees} handleNewProject={handleNewProject}/>} />
               <Route path="addemployee" element={<AddEmployeeForm projects={projects} handleNewEmployee={handleNewEmployee}/>} />
             <Route/>

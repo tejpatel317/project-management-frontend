@@ -1,7 +1,7 @@
 import { Avatar, AvatarGroup, Box, Button, Card, CardContent, CardHeader, Grid, Modal, styled, Typography } from '@mui/material'
 import React, { useState } from 'react'
 
-function ProjectItem({oneproject, employees}) {
+function ProjectItem({oneproject, employees, onDeletedProject}) {
 
   const {id, name, detail, due_date: dueDate, employees: projectEmployees} = oneproject
   const [open, setOpen] = useState(false)
