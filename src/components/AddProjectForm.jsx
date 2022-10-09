@@ -10,7 +10,7 @@ function AddProjectForm({employees, handleNewProject}) {
   const [projectEmployees, setProjectEmployees] = useState([])
 
   const formSelectValues = employees.map((employee) => {
-    return (<option value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
+    return (<option key={employee.id} value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
   })
 
   function handleEmployeeSelectChange(e) {

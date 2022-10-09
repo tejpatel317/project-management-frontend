@@ -1,4 +1,4 @@
-import { Avatar, Box, Container, List, ListItem, ListItemAvatar, ListItemText, Modal, styled, Typography } from '@mui/material'
+import { Box, List, Typography } from '@mui/material'
 import AvatarList from './AvatarList'
 import React from 'react'
 
@@ -9,14 +9,14 @@ function Rightbar({employees}) {
       <div className="rightbarsticky">
         <Typography variant="h6" fontWeight={400} className="rightbartext" position="sticky" pt={2}>Employees</Typography>
         <form className="p-0 my-3 mx-2">
-          <input className="form-control" type="text" value={"Search"}/>  
+          <input className="form-control" type="text"/>  
         </form>
       </div>
       <div className="avatarblock">
-      <List>
-      <AvatarList employees={employees}></AvatarList>
-      </List>
-    </div>
+        <List>
+          <AvatarList employees={employees}></AvatarList>
+        </List>
+      </div>
     </Box>
   )
 }

@@ -1,4 +1,4 @@
-import { Avatar, AvatarGroup, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, styled, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import ProjectList from './ProjectList';
@@ -15,7 +15,7 @@ function Feed({projects, employees, onDeletedProject, handleProjectUpdate}) {
         </div>
       </div>
       <form className="p-0 my-5 mx-5">
-        <input className="form-control" type="text" value={"Search"}/>     
+        <input className="form-control" type="text"/>     
       </form>
       <ProjectList projects={projects} employees={employees} onDeletedProject={onDeletedProject} handleProjectUpdate={handleProjectUpdate}></ProjectList>
     </Box>
