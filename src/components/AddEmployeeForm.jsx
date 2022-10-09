@@ -37,7 +37,7 @@ function AddEmployeeForm({projects, handleNewEmployee}) {
         last_name: lastName,
         position: position,
         avatar: avatar,
-        avaliable_project: avaliableProjects,
+        avaliable_projects: avaliableProjects,
       }),
     })
     .then((r) => r.json())

@@ -45,9 +45,6 @@ function ProjectItem({oneproject, employees}) {
         setNewEmployees(selectedEmployees)
     }
 
-    console.log(newEmployees)
-    
-
   return (
     <>
     <Card onClick={e=>setOpen(true)}>
