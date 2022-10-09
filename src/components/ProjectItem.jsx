@@ -3,47 +3,55 @@ import React, { useState } from 'react'
 
 function ProjectItem({oneproject, employees}) {
 
-    const {id, name, detail, due_date: dueDate, employees: projectEmployees} = oneproject
-    const [open, setOpen] = useState(false)
-    const [openform, setOpenForm] = useState(false)
-    const [newEmployees, setNewEmployees] = useState([])
+  const {id, name, detail, due_date: dueDate, employees: projectEmployees} = oneproject
+  const [open, setOpen] = useState(false)
+  const [openform, setOpenForm] = useState(false)
+  const [newEmployees, setNewEmployees] = useState([])
 
-    const groupedAvatars = projectEmployees.map((employee) => {
-        return (<Avatar alt={`${employee.first_name} ${employee.last_name}`} src={employee.avatar}></Avatar>)
+  const groupedAvatars = projectEmployees.map((employee) => {
+    return (<Avatar alt={`${employee.first_name} ${employee.last_name}`} src={employee.avatar}></Avatar>)
+  })
+
+  const employeeNameList = projectEmployees.map((employee) => {
+    return (`${employee.first_name} ${employee.last_name}`)
+  }).join(", ")
+
+  const assignedEmployees = projectEmployees.map((employee) => {
+    return (employee.id)
+  })
+
+  const unassignedEmployees = employees.filter((employee) => {
+    return (!assignedEmployees.includes(employee.id))
+  })
+
+  const formSelectValues = unassignedEmployees.map((employee) => {
+    return (<option value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
+  })
+
+  const StyledModal = styled(Modal)({
+    display:"flex",
+    alignItems:"center",
+    justifyContent: "center"
+  })
+
+  function handleEmployeeSelectChange(e) {
+    const options = e.target.options;
+      const selectedEmployees = [];
+        for (let i = 0; i < options.length; i++) {
+          if (options[i].selected) {
+            selectedEmployees.push(options[i].value);
+          }
+        }
+    setNewEmployees(selectedEmployees)
+  }
+
+  function handleDelete(e) {
+    fetch(`http://localhost:9292/projects/${id}`, {
+      method: "DELETE",
     })
-
-    const employeeNameList = projectEmployees.map((employee) => {
-        return (`${employee.first_name} ${employee.last_name}`)
-    }).join(", ")
-
-    const assignedEmployees = projectEmployees.map((employee) => {
-        return (employee.id)
-    })
-
-    const unassignedEmployees = employees.filter((employee) => {
-        return (!assignedEmployees.includes(employee.id))
-    })
-
-    const formSelectValues = unassignedEmployees.map((employee) => {
-        return (<option value={`${employee.id}`}>{`${employee.first_name} ${employee.last_name}`}</option>)
-    })
-
-    const StyledModal = styled(Modal)({
-        display:"flex",
-        alignItems:"center",
-        justifyContent: "center"
-    })
-
-    function handleEmployeeSelectChange(e) {
-        const options = e.target.options;
-          const selectedEmployees = [];
-            for (let i = 0; i < options.length; i++) {
-              if (options[i].selected) {
-                selectedEmployees.push(options[i].value);
-              }
-            }
-        setNewEmployees(selectedEmployees)
-    }
+    .then((r) => r.json())
+    .then((deletedProject) => onDeletedProject(deletedProject));
+  }
 
   return (
     <>
@@ -88,7 +96,7 @@ function ProjectItem({oneproject, employees}) {
                     <Typography variant="h6" mb={3} fontWeight={500}>{`Assigned To: ${employeeNameList}`}</Typography>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>
-                            <Button variant="contained" color="error" size="large">Delete Project</Button>
+                            <Button variant="contained" color="error" size="large" onClick={handleDelete}>Delete Project</Button>
                         </Grid>
                         <Grid item xs={6}>
                             <Button variant="contained" color="success" size="large" onClick={e=>setOpenForm(true)}>Update Assigned</Button>
