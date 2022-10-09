@@ -80,10 +80,33 @@ function App() {
       }
     })
 
-    console.log(deletedProject)
-    console.log(employeesToUpdate)
-    console.log(employees)
-    console.log(updatedEmployees)
+    setEmployees(updatedEmployees)
+  }
+
+  function handleProjectUpdate(newProject) {
+
+    const updatedProjects = projects.map((project) => {
+      if (project.id === newProject.id) {
+        return newProject
+      } else {
+        return project
+      }
+    })
+
+    setProjects(updatedProjects)
+
+    const employeesToUpdate = newProject.employees.map((employee) => employee.id)
+    const updatedEmployees = employees.map((employee) => {
+      if (employeesToUpdate.includes(employee.id)) {
+        const copyEmployeeProjects = [...employee.projects, {id: newProject.id, name: newProject.name, detail: newProject.detail, due_date: newProject.due_date}]
+        const newEmployee = {...employee}
+        newEmployee.projects = copyEmployeeProjects
+        return newEmployee
+      }
+      else {
+        return employee
+      }
+    })
 
     setEmployees(updatedEmployees)
   }
@@ -94,7 +117,7 @@ function App() {
         <Leftbar/>
         <Routes>
             <Route path="/"/>
-              <Route index element={<Feed projects={projects} employees={employees} onDeletedProject={onDeletedProject}/>}/>
+              <Route index element={<Feed projects={projects} employees={employees} onDeletedProject={onDeletedProject} handleProjectUpdate={handleProjectUpdate}/>}/>
               <Route path="addproject" element={<AddProjectForm employees={employees} handleNewProject={handleNewProject}/>} />
               <Route path="addemployee" element={<AddEmployeeForm projects={projects} handleNewEmployee={handleNewEmployee}/>} />
             <Route/>

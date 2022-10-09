@@ -1,7 +1,7 @@
 import { Avatar, AvatarGroup, Box, Button, Card, CardContent, CardHeader, Grid, Modal, styled, Typography } from '@mui/material'
 import React, { useState } from 'react'
 
-function ProjectItem({oneproject, employees, onDeletedProject}) {
+function ProjectItem({oneproject, employees, onDeletedProject, handleProjectUpdate}) {
 
   const {id, name, detail, due_date: dueDate, employees: projectEmployees} = oneproject
   const [open, setOpen] = useState(false)
@@ -65,7 +65,7 @@ function ProjectItem({oneproject, employees, onDeletedProject}) {
       }),
     })
     .then((r) => r.json())
-    .then((newProject) => console.log(newProject))
+    .then((newProject) => handleProjectUpdate(newProject))
   }
 
 
@@ -89,7 +89,7 @@ function ProjectItem({oneproject, employees, onDeletedProject}) {
         <Box width={650} bgcolor="white" p={5} borderRadius={5} className="avatarmodal">
             {openform ? 
                 <>
-                    <form className="mb-3">
+                    <form className="mb-3" onSubmit={handleSubmit}>
                         <label className="form-label">Assign To:</label>
                         <select class="form-select" size={`${unassignedEmployees.length}`} multiple aria-label="Default select example" value={newEmployees} onChange={handleEmployeeSelectChange}>
                             {formSelectValues}
@@ -99,7 +99,7 @@ function ProjectItem({oneproject, employees, onDeletedProject}) {
                             <Button variant="contained" color="error" size="large" onClick={e=>setOpenForm(false)}>Cancel</Button>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button variant="contained" color="success" size="large" onSubmit={handleSubmit}>Submit Update</Button>
+                            <Button variant="contained" color="success" size="large" type="submit">Submit Update</Button>
                         </Grid>
                     </Grid>
                     </form>
