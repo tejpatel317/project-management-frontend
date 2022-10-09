@@ -53,6 +53,22 @@ function ProjectItem({oneproject, employees, onDeletedProject}) {
     .then((deletedProject) => onDeletedProject(deletedProject));
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch(`http://localhost:9292/projects/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        project_employees: newEmployees,
+      }),
+    })
+    .then((r) => r.json())
+    .then((newProject) => console.log(newProject))
+  }
+
+
   return (
     <>
     <Card onClick={e=>setOpen(true)}>
@@ -78,15 +94,15 @@ function ProjectItem({oneproject, employees, onDeletedProject}) {
                         <select class="form-select" size={`${unassignedEmployees.length}`} multiple aria-label="Default select example" value={newEmployees} onChange={handleEmployeeSelectChange}>
                             {formSelectValues}
                         </select>
-                    </form>
-                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                    <Grid container mt={1} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>
                             <Button variant="contained" color="error" size="large" onClick={e=>setOpenForm(false)}>Cancel</Button>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button variant="contained" color="success" size="large">Submit Update</Button>
+                            <Button variant="contained" color="success" size="large" onSubmit={handleSubmit}>Submit Update</Button>
                         </Grid>
                     </Grid>
+                    </form>
                 </> 
                 :
                 <>
