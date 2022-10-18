@@ -1,9 +1,10 @@
 import { Box, List, Typography } from '@mui/material'
 import AvatarList from './AvatarList'
-import React from 'react'
+import React, { useState } from 'react'
 
 
 function Rightbar({employees}) {
+
   return (
     <Box bgcolor="#eeeeee" borderLeft={2} borderColor="#bdbdbd" flex={1.2} sx={{ display: { xs: "none", sm: "none", md: "none", lg:"block"}}}>
       <div className="rightbarsticky">

@@ -93,3 +93,9 @@
 .feedbox {
   min-height: 100vh;
 }
+
+.pushleft {
+  float: left;
+  margin: 10px;
+  font-weight: 800;
+}

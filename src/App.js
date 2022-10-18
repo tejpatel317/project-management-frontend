@@ -85,17 +85,9 @@ function App() {
 
   function handleProjectUpdate(newProject) {
 
-    const updatedProjects = projects.map((project) => {
-      if (project.id === newProject.id) {
-        return newProject
-      } else {
-        return project
-      }
-    })
-
-    setProjects(updatedProjects)
-
-    const employeesToUpdate = newProject.employees.map((employee) => employee.id)
+    const oldEmployees = projects.find((project) => project.id === newProject.id).employees.map((employee) => employee.id)
+    const newEmployees = newProject.employees.map((employee) => employee.id)
+    const employeesToUpdate = newEmployees.filter(x => !oldEmployees.includes(x))
     const updatedEmployees = employees.map((employee) => {
       if (employeesToUpdate.includes(employee.id)) {
         const copyEmployeeProjects = [...employee.projects, {id: newProject.id, name: newProject.name, detail: newProject.detail, due_date: newProject.due_date}]
@@ -109,6 +101,16 @@ function App() {
     })
 
     setEmployees(updatedEmployees)
+
+    const updatedProjects = projects.map((project) => {
+      if (project.id === newProject.id) {
+        return newProject
+      } else {
+        return project
+      }
+    })
+
+    setProjects(updatedProjects)
   }
 
   return (
